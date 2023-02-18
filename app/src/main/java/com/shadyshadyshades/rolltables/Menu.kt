@@ -5,11 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 
-// TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
@@ -18,15 +16,12 @@ private const val ARG_PARAM2 = "param2"
  */
 class Menu : Fragment() {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
+
     }
 
     override fun onCreateView(
@@ -34,7 +29,29 @@ class Menu : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_menu, container, false)
+        //Get the UI elements and add listeners
+        val theView = inflater.inflate(R.layout.fragment_menu, container, false)
+        val home = theView.findViewById<ImageView>(R.id.home)
+        val post = theView.findViewById<ImageView>(R.id.post)
+        val user = theView.findViewById<ImageView>(R.id.user)
+
+
+        /*Set onClickListeners for the UI elements on the menu
+        Make sure that the icon changes to look like it's been selected
+         */
+        home.setOnClickListener{
+
+        }
+
+        post.setOnClickListener{
+
+        }
+
+        user.setOnClickListener{
+
+        }
+
+        return theView
     }
 
     companion object {
@@ -48,12 +65,9 @@ class Menu : Fragment() {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance() =
             Menu().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+
             }
     }
 }
