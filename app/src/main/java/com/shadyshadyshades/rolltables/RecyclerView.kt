@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import java.util.LinkedList
 
 
 /**
@@ -15,9 +16,27 @@ import android.widget.ImageView
  */
 class RecyclerView : Fragment() {
 
+    private val testData = LinkedList<String>()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        /*testData is a list of potential roll tables so that I can set up the UI
+        This will be deleted/removed once I set up an online SQL/mySQL to store user data */
+
+        if (testData.isEmpty()) {
+            testData.add("100 trinkets")
+            testData.add("20 enemies you might find in the snow")
+            testData.add("10 cranky gatekeepers")
+            testData.add("20 shady characters that you might find in a tavenr")
+            testData.add("12 magical swords")
+        }
+
+
+        /*
+        The app should actually connect to a SQL database to grab recent tables made
+         */
 
     }
 
