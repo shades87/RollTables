@@ -1,25 +1,35 @@
 package com.shadyshadyshades.rolltables
 
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import java.util.LinkedList
 
 class TableAdapter(inList:List<String?>?) : RecyclerView.Adapter<TableViewHolder>() {
 
-    var list:List<String?>? = null
+    private var list:List<String?>? = null
 
         init {
             list = inList
         }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TableViewHolder {
-        TODO("Not yet implemented")
+        //inflate the view, then create the view holder
+        val l = LayoutInflater.from(parent.context)
+        val view = l.inflate(R.layout.table_view ,parent, false)
+        val v: TableViewHolder = TableViewHolder(view)
+
+        return v
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return list!!.size
     }
 
     override fun onBindViewHolder(holder: TableViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        var s = list?.get(position)
+        if (s != null) {
+            holder.tableName = s
+            holder.t.setText(s)
+        }
+
     }
 }
