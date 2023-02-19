@@ -1,20 +1,21 @@
 package com.shadyshadyshades.rolltables
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import java.util.LinkedList
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import java.util.*
 
 
 /**
  * A simple [Fragment] subclass.
- * Use the [RecyclerView.newInstance] factory method to
+ * Use the [RecyclerFrame.newInstance] factory method to
  * create an instance of this fragment.
  */
-class RecyclerView : Fragment() {
+class RecyclerFrame : Fragment() {
 
     private val testData = LinkedList<String>()
 
@@ -45,8 +46,14 @@ class RecyclerView : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_recycler_frame, container, false)
 
-        return inflater.inflate(R.layout.fragment_recycler_view, container, false)
+        //set up the Recycler View and the adapter
+        val rv = view.findViewById<RecyclerView>(R.id.theFrame)
+        rv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        val adapter = TableAdapter(testData)
+
+        return view
     }
 
     companion object {
@@ -58,7 +65,7 @@ class RecyclerView : Fragment() {
          */
         @JvmStatic
         fun newInstance() =
-            RecyclerView().apply {
+            RecyclerFrame().apply {
 
             }
     }

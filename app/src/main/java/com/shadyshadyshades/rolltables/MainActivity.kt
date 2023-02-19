@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         if (recycle==null)
         {
-            recycle = RecyclerView()
+            recycle = RecyclerFrame()
             fm.beginTransaction().add(R.id.view, recycle).commit()
         }
     }
